@@ -56,18 +56,18 @@ You can install Postman via this website: https://www.postman.com/downloads/
     -   [x] Commit: `Implement delete function in Subscriber repository.`
     -   [x] Write answers of your learning module's "Reflection Publisher-1" questions in this README.
 -   **STAGE 2: Implement services and controllers**
-    -   [ ] Commit: `Create Notification service struct skeleton.`
-    -   [ ] Commit: `Implement subscribe function in Notification service.`
-    -   [ ] Commit: `Implement subscribe function in Notification controller.`
-    -   [ ] Commit: `Implement unsubscribe function in Notification service.`
-    -   [ ] Commit: `Implement unsubscribe function in Notification controller.`
-    -   [ ] Write answers of your learning module's "Reflection Publisher-2" questions in this README.
+    -   [x] Commit: `Create Notification service struct skeleton.`
+    -   [x] Commit: `Implement subscribe function in Notification service.`
+    -   [x] Commit: `Implement subscribe function in Notification controller.`
+    -   [x] Commit: `Implement unsubscribe function in Notification service.`
+    -   [x] Commit: `Implement unsubscribe function in Notification controller.`
+    -   [x] Write answers of your learning module's "Reflection Publisher-2" questions in this README.
 -   **STAGE 3: Implement notification mechanism**
-    -   [ ] Commit: `Implement update method in Subscriber model to send notification HTTP requests.`
-    -   [ ] Commit: `Implement notify function in Notification service to notify each Subscriber.`
-    -   [ ] Commit: `Implement publish function in Program service and Program controller.`
-    -   [ ] Commit: `Edit Product service methods to call notify after create/delete.`
-    -   [ ] Write answers of your learning module's "Reflection Publisher-3" questions in this README.
+    -   [x] Commit: `Implement update method in Subscriber model to send notification HTTP requests.`
+    -   [x] Commit: `Implement notify function in Notification service to notify each Subscriber.`
+    -   [x] Commit: `Implement publish function in Program service and Program controller.`
+    -   [x] Commit: `Edit Product service methods to call notify after create/delete.`
+    -   [x] Write answers of your learning module's "Reflection Publisher-3" questions in this README.
 
 ## Your Reflections
 This is the place for you to write reflections:
@@ -130,3 +130,27 @@ Postman juga menawarkan fitur pembuatan Dokumentasi API yang sangat berguna. Say
 proyek kelompok kami, memungkinkan kami membuat dokumentasi API secara lebih terstruktur dan rapi.
 
 #### Reflection Publisher-3
+1. Observer Pattern has two variations: Push model (publisher pushes data to subscribers) and Pull model (subscribers pull 
+data from publisher). In this tutorial case, which variation of Observer Pattern that we use?
+
+    Jawaban: Dalam situasi ini, kita menerapkan Observer Pattern dengan menggunakan model Push. Ini terlihat dari perilaku 
+publisher yang secara aktif mengirimkan pemberitahuan kepada setiap Observer melalui fungsi `NotificationService::notify`. 
+Fungsi ini memanggil metode `update()` untuk setiap Subscriber (Observer) yang telah melakukan langganan terhadap jenis produk tertentu.
+
+2. What are the advantages and disadvantages of using the other variation of Observer Pattern for this tutorial case? 
+(example: if you answer Q1 with Push, then imagine if we used Pull)
+
+    Jawaban: Dalam konteks ini, jika kita menggunakan Observer Pattern dengan model Pull, keuntungannya adalah Observer menjadi 
+lebih fleksibel dalam mengambil data dari publisher. Publisher memiliki kendali penuh atas kapan dan bagaimana data akan 
+diterima. Ini dapat mengurangi beban pada Publisher karena Observer hanya akan mengambil data saat dibutuhkan. 
+Namun, pendekatan ini juga memiliki kelemahan, di mana informasi yang diterima tidak real-time. Hal ini menyebabkan 
+tujuan utama dari pemberian notifikasi, yakni meningkatkan kesadaran produk, terkadang tidak terpenuhi karena notifikasi 
+tertunda jika subscriber tidak aktif dalam melakukan permintaan.
+
+3. Explain what will happen to the program if we decide to not use multi-threading in the notification process!
+
+    Jawaban: Jika kita memilih untuk tidak menggunakan multi-threading dalam proses notifikasi ini, maka notifikasi akan 
+dikirim secara sekuensial pada satu thread program. Ini berarti bahwa keseluruhan program akan berjalan lebih lambat, 
+yang berakibat pada penundaan dalam pengiriman notifikasi, terutama jika terdapat banyak notifikasi yang harus dikirim 
+secara bersamaan. Penundaan tersebut disebabkan oleh fakta bahwa proses notifikasi harus menunggu hingga notifikasi lain 
+selesai diproses sebelum dapat diproses.
