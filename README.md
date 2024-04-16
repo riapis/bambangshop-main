@@ -101,5 +101,32 @@ secara aman oleh beberapa thread secara bersamaan. Sebaliknya, meskipun Singleto
 thread, terutama dalam situasi konkurensi. Oleh karena itu, memilih DashMap pada kasus tersebut menjadi opsi yang lebih terjamin keamanannya.
 
 #### Reflection Publisher-2
+1. In the Model-View Controller (MVC) compound pattern, there is no “Service” and “Repository”. Model in MVC covers both 
+data storage and business logic. Explain based on your understanding of design principles, why we need to separate “Service” 
+and “Repository” from a Model?
+
+    Jawaban: Memisahkan "Service" dan "Repository" dari model merupakan aplikasi dari prinsip Separating Concerns dalam desain 
+perangkat lunak. Ini sejalan dengan prinsip Single Responsibility Principle (SRP), yang menyatakan bahwa sebuah modul harus 
+fokus pada satu fungsi tunggal. Dalam konteks ini, "Service" bertanggung jawab atas operasi logika bisnis, sementara "Repository" 
+bertanggung jawab atas operasi akses data. Melalui pemisahan ini, dapat ditingkatkan kebutuhan non-fungsional yang sesuai 
+dengan prinsip Desain yang Baik.
+
+2. What happens if we only use the Model? Explain your imagination on how the interactions between each model (Program, Subscriber, Notification) 
+affect the code complexity for each model?
+
+    Jawaban: Jika hanya menggunakan Model, maka model akan menampung method-method yang mencakup semua fungsi, baik itu operasi 
+logika bisnis maupun akses data. Akibatnya, interaksi langsung antara model-model akan terjadi, yang mungkin memerlukan 
+penambahan method tambahan dalam model untuk mendukung interaksi tersebut. Seiring dengan perkembangan program, model akan 
+menjadi terlalu "bloated" atau terlalu besar. Hal ini akan meningkatkan kompleksitas kode dan mengurangi modularitas serta 
+kemudahan pemeliharaan.
+
+3. Have you explored more about Postman? Tell us how this tool helps you to test your current work. You might want to also 
+list which features in Postman you are interested in or feel like it is helpful to help your Group Project or any of your 
+future software engineering projects?
+
+    Jawaban: Postman adalah alat yang tak ternilai dalam pengembangan perangkat lunak. Saya sering menggunakan Postman untuk 
+mengirimkan HTTP Request ke server yang telah dibuat, memastikan bahwa responsnya sesuai dengan yang diharapkan. Selain itu, 
+Postman juga menawarkan fitur pembuatan Dokumentasi API yang sangat berguna. Saya yakin fitur ini akan sangat membantu dalam 
+proyek kelompok kami, memungkinkan kami membuat dokumentasi API secara lebih terstruktur dan rapi.
 
 #### Reflection Publisher-3
